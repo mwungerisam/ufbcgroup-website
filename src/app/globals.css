@@ -1,15 +1,10 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +18,364 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Animation and Hover Effects */
+.sector-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  border-color: #1a237e;
+}
+
+.faq-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.sector-card:hover .sector-icon {
+  transform: scale(1.1);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  border-color: #1a237e;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.15);
+}
+
+.testimonial-card {
+  cursor: pointer;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.15) !important;
+}
+
+/* Modernized Testimonials Section */
+.testimonials-section {
+  position: relative;
+}
+
+.testimonials-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(600px 200px at 50% -20%, rgba(66,165,245,0.15), transparent 60%),
+    radial-gradient(600px 200px at 50% 120%, rgba(56,142,60,0.15), transparent 60%);
+  pointer-events: none;
+}
+
+/* Card top accent bar */
+.testimonial-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e5e7eb !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08) !important;
+}
+
+.testimonial-card::after {
+  /* removed top accent bar per request */
+  display: none !important;
+}
+
+/* Avatar ring (targets first child in our current markup) */
+.testimonial-card > div:first-child {
+  box-shadow: 0 0 0 3px #fff, 0 0 0 6px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Better grid alignment */
+.testimonials-grid {
+  align-items: stretch;
+}
+
+/* Center the last two testimonial cards and reduce their size */
+@media (min-width: 1024px) {
+  /* Revert last two to behave like the other cards (no special columns or sizing) */
+  .testimonials-grid > .testimonial-card:nth-last-child(2),
+  .testimonials-grid > .testimonial-card:last-child {
+    grid-column: auto !important;
+    justify-self: stretch !important;
+  }
+  .testimonials-grid > .testimonial-card:nth-last-child(-n+2) {
+    max-width: none !important;
+    transform: none !important;
+    padding: 18px !important; /* matches global card padding override */
+  }
+}
+
+/* Decrease typography sizes inside all testimonial cards */
+.testimonial-card { padding: 18px !important; }
+.testimonial-card > div:nth-child(2) svg { width: 16px !important; height: 16px !important; }
+.testimonial-card > div:nth-child(3) { font-size: 0.92rem !important; line-height: 1.6 !important; }
+.testimonial-card > div:nth-child(4) { font-size: 0.95rem !important; }
+.testimonial-card > div:nth-child(5) { font-size: 0.85rem !important; color: #6b7280 !important; }
+
+.form-input:focus {
+  outline: none;
+  border-color: #42a5f5;
+  box-shadow: 0 0 0 3px rgba(66, 165, 245, 0.2);
+  transform: translateY(-1px);
+}
+
+.submit-btn:hover {
+  background: #0d47a1 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(26, 35, 126, 0.3);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Mobile Navigation Styles */
+@media (min-width: 768px) {
+  .mobile-menu-btn {
+    display: none !important;
+  }
+  .desktop-nav {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .desktop-nav {
+    display: none !important;
+  }
+}
+
+/* Portfolio Image Hover Effect */
+.portfolio-image-container:hover img {
+  transform: scale(1.08);
+}
+
+/* Loading Spinner Animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  /* Footer Responsive */
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Contact Grid Responsive */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  
+  /* Services Page Responsive */
+  .service-card {
+    min-width: 100% !important;
+  }
+  
+  /* Better spacing on mobile */
+  .footer-container {
+    padding: 0 16px !important;
+  }
+  
+  /* Hide line breaks on mobile in commitment section */
+  .commitment-break {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small devices */
+  .service-card {
+    padding: 16px !important;
+  }
+  
+  /* Reduce font sizes further on very small screens */
+  h1 {
+    font-size: clamp(1.25rem, 5vw, 1.75rem) !important;
+  }
+  
+  h2 {
+    font-size: clamp(1.1rem, 4vw, 1.5rem) !important;
+  }
+  
+  /* Testimonials section - ensure cards fit properly on mobile */
+  .testimonial-card {
+    min-width: 100% !important;
+    width: 100% !important;
+  }
+}
+
+/* Additional responsive adjustments for testimonials */
+@media (max-width: 768px) {
+  /* Ensure testimonial cards stack on mobile */
+  .testimonials-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Desktop-specific professional styling */
+@media (min-width: 1024px) {
+  /* Hero Section Desktop */
+  .hero-header {
+    padding: 0 60px !important;
+  }
+  
+  /* Commitment Section Desktop */
+  .commitment-section {
+    width: calc(100% - 80px) !important;
+    max-width: 1000px !important;
+    padding: 40px 48px !important;
+  }
+  
+  /* Show line breaks on desktop */
+  .commitment-break {
+    display: block;
+  }
+  
+  /* Sectors Section Desktop */
+  .sectors-section {
+    padding: 40px 60px !important;
+  }
+  
+  .sectors-section > div {
+    gap: 32px !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  
+  /* Testimonials section - limit to 3 columns on desktop */
+  .testimonials-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    max-width: 1200px !important;
+    gap: 32px !important;
+  }
+  
+  .testimonial-card {
+    max-width: 100% !important;
+  }
+  
+  /* Better desktop spacing */
+  .testimonials-section {
+    padding: 0 40px !important;
+  }
+  
+  /* FAQ Section Desktop */
+  .faq-section {
+    padding: 0 60px !important;
+  }
+  
+  .faq-card {
+    padding: 28px 32px !important;
+  }
+  
+  /* Footer desktop improvements */
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr 1.2fr !important;
+    gap: 2rem !important;
+  }
+  
+  /* Better container widths for desktop */
+  .footer-container {
+    max-width: 1400px !important;
+    padding: 0 40px !important;
+  }
+}
+
+/* Large desktop screens (1440px+) */
+@media (min-width: 1440px) {
+  .hero-header {
+    padding: 0 80px !important;
+  }
+  
+  .commitment-section {
+    max-width: 1100px !important;
+    padding: 48px 56px !important;
+  }
+  
+  .sectors-section {
+    padding: 48px 80px !important;
+  }
+  
+  .sectors-section > div {
+    gap: 40px !important;
+  }
+  
+  .testimonials-grid {
+    gap: 40px !important;
+  }
+  
+  .testimonials-section {
+    padding: 0 60px !important;
+  }
+  
+  .faq-section {
+    padding: 0 80px !important;
+  }
+  
+  .faq-card {
+    padding: 32px 40px !important;
+  }
+  
+  .footer-container {
+    padding: 0 60px !important;
+  }
+}
+
+/* Contact Form Input Styles */
+/* Ensure typed text is dark and clearly visible */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+  color: #1a1a1a !important;
+  -webkit-text-fill-color: #1a1a1a !important;
+}
+
+/* Placeholder text should be grey */
+input::placeholder,
+textarea::placeholder {
+  color: #999 !important;
+  opacity: 1;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #999 !important;
+  opacity: 1;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #999 !important;
+  opacity: 1;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #999 !important;
+  opacity: 1;
+}
+
+/* Select dropdown text color */
+select {
+  color: #1a1a1a !important;
+}
+
+select option {
+  color: #1a1a1a !important;
+  background-color: #ffffff !important;
+}
+
+select option[value=""] {
+  color: #999 !important;
 }

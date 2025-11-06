@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "title": "The Future of Agriculture in Rwanda",
+    "status": "published",
+    "date": "2024-03-20",
+    "views": 245,
+    "excerpt": "Exploring innovative agricultural practices..."
+  },
+  {
+    "id": 2,
+    "title": "Building Rwanda's Future",
+    "status": "published",
+    "date": "2024-03-15",
+    "views": 189,
+    "excerpt": "Construction and infrastructure development..."
+  }
+]

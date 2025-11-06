@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# UNIQUE FORM BUSINESS COMPANY Ltd (UFBC) - Website
 
-## Getting Started
+[![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR_NETLIFY_SITE_ID/deploy-status)](https://app.netlify.com/sites/YOUR_SITE_NAME/deploys)
 
-First, run the development server:
+Official website for UNIQUE FORM BUSINESS COMPANY Ltd (UFBC), a leading multi-sectoral company in Rwanda.
+
+## 🚀 Features
+
+- **Modern & Responsive Design**: Built with Next.js 14 and Tailwind CSS
+- **Blazing Fast Performance**: Optimized for speed and SEO
+- **Contact Form**: Integrated with SendGrid for reliable email delivery
+- **Blog System**: Easy content management with Markdown
+- **Portfolio Showcase**: Beautiful display of company projects
+- **Admin Dashboard**: Secure content management system
+- **Analytics**: Google Analytics and Google Tag Manager integration
+- **SEO Optimized**: Sitemap, robots.txt, and meta tags
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 14](https://nextjs.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **State Management**: [Zustand](https://github.com/pmndrs/zustand)
+- **Form Handling**: [React Hook Form](https://react-hook-form.com/)
+- **Icons**: [Lucide Icons](https://lucide.dev/)
+- **Deployment**: [Netlify](https://www.netlify.com/)
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18.x or later
+- npm 9.x or later
+- Git
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/uniqueform-website.git
+   cd uniqueform-website
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
+
+3. Set up environment variables:
+   ```bash
+   cp .env.example .env.local
+   ```
+   Then edit `.env.local` with your configuration.
+
+4. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 📦 Build for Production
 
 ```bash
-npm run dev
+npm run build
 # or
-yarn dev
+yarn build
 # or
-pnpm dev
-# or
-bun dev
+pnpm build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `dev`: Start development server
+- `build`: Build for production
+- `start`: Start production server
+- `lint`: Run ESLint
+- `format`: Format code with Prettier
+- `type-check`: Check TypeScript types
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🌍 Environment Variables
 
-## Learn More
+See [.env.example](.env.example) for all available environment variables.
 
-To learn more about Next.js, take a look at the following resources:
+## 🤝 Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📄 License
 
-## Deploy on Vercel
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📧 Contact
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Email: [info@uniqueform.rw](mailto:info@uniqueform.rw)
+- Website: [https://uniqueform.rw](https://uniqueform.rw)

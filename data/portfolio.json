@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Kigali Business Center",
+    "category": "Construction",
+    "status": "published",
+    "featured": true,
+    "description": "Modern office complex in Kigali",
+    "imageUrl": "https://images.unsplash.com/photo-1486406146926-c62792d1ab?w=400"
+  },
+  {
+    "id": 2,
+    "title": "Wanda Agricultural Innovation Hub",
+    "category": "Agriculture",
+    "status": "published",
+    "featured": true,
+    "description": "Innovative farming solutions",
+    "imageUrl": "https://images.unsplash.com/photo-157494332021931372w=400"
+  }
+]
