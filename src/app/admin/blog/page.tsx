@@ -28,7 +28,7 @@ export default function AdminBlogPage() {
 
   return (
     <main style={{ paddingTop: 120 }}>
-      <Navbar isAdmin />
+      <Navbar />
       <FadeIn delay={0.2}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '24px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' }}>

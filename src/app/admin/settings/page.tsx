@@ -36,7 +36,7 @@ export default function SettingsPage() {
 
   return (
     <main style={{ paddingTop: 120 }}>
-      <Navbar isAdmin />
+      <Navbar />
       
       <FadeIn delay={0.2}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '24px' }}>
