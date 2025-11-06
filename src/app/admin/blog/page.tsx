@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
 import FadeIn from '../../components/FadeIn';
 
 interface BlogPost {
@@ -84,7 +83,6 @@ export default function AdminBlogPage() {
 
         </div>
       </FadeIn>
-      <Footer />
     </main>
   );
 }

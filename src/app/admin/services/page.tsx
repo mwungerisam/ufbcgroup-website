@@ -1,6 +1,5 @@
 "use client";
 import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
 import FadeIn from "../../components/FadeIn";
 
 export default function AdminServicesPage() {
@@ -15,7 +14,6 @@ export default function AdminServicesPage() {
           </p>
         </div>
       </FadeIn>
-      <Footer />
     </main>
   );
 }

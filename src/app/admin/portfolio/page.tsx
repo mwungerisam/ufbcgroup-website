@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
 import FadeIn from '../../components/FadeIn';
 
 interface PortfolioItem {
@@ -12,6 +11,7 @@ interface PortfolioItem {
   status: 'draft' | 'published';
   description: string;
   imageUrl: string;
+  featured?: boolean;
 }
 
 export default function PortfolioManagement() {
@@ -44,6 +44,21 @@ export default function PortfolioManagement() {
     });
   }
 };
+
+  const handlePublishPortfolio = async (id: number) => {
+    const updated = portfolioItems.map((item: PortfolioItem) =>
+      item.id === id ? { ...item, status: 'published' } : item
+    );
+    setPortfolioItems(updated);
+    const published = updated.find((item: PortfolioItem) => item.id === id);
+    if (published) {
+      await fetch('/api/admin', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'portfolio', item: published })
+      });
+    }
+  };
 
   const handleDeletePortfolio = async (id: number) => {
   if (confirm('Are you sure you want to delete this portfolio item?')) {
@@ -271,7 +286,6 @@ export default function PortfolioManagement() {
         </div>
       </FadeIn>
       
-      <Footer />
     </main>
   );
 } 

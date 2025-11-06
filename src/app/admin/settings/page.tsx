@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
 import FadeIn from '../../components/FadeIn';
 
 export default function SettingsPage() {
@@ -327,8 +326,7 @@ export default function SettingsPage() {
           </div>
         </div>
       </FadeIn>
-      
-      <Footer />
+
     </main>
   );
-} 
+}

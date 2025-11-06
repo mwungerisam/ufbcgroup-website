@@ -1,16 +1,19 @@
 "use client";
 import { useState, useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
+
 import Link from 'next/link';
 import Image from 'next/image';
 
 interface NavbarProps {
-  isAdmin?: boolean;
 }
 
-export default function Navbar({ isAdmin = false }: NavbarProps) {
+export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const pathname = usePathname();
+  const admin = pathname ? pathname.startsWith('/admin') : false;
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -89,7 +92,7 @@ export default function Navbar({ isAdmin = false }: NavbarProps) {
           alignItems: 'center',
           gap: '2rem'
         }} className="desktop-nav">
-          {isAdmin ? (
+          {admin ? (
             <>
               <Link href="/admin" style={{ color: '#fff', textDecoration: 'none' }}>Admin Home</Link>
               <Link href="/admin/analytics" style={{ color: '#fff', textDecoration: 'none' }}>Analytics</Link>
@@ -149,7 +152,7 @@ export default function Navbar({ isAdmin = false }: NavbarProps) {
             gap: '1rem',
             padding: '0 2rem'
           }}>
-            {isAdmin ? (
+            {admin ? (
               <>
                 <Link href="/admin" style={{ color: '#fff', textDecoration: 'none', padding: '0.5rem 0', fontSize: '16px' }} onClick={closeMobileMenu}>Admin Home</Link>
                 <Link href="/admin/analytics" style={{ color: '#fff', textDecoration: 'none', padding: '0.5rem 0', fontSize: '16px' }} onClick={closeMobileMenu}>Analytics</Link>
