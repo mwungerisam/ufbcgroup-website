@@ -11,7 +11,7 @@ interface PortfolioItem {
   status: 'draft' | 'published';
   description: string;
   imageUrl: string;
-  featured?: boolean;
+  featured: boolean;
 }
 
 export default function PortfolioManagement() {
@@ -23,8 +23,17 @@ export default function PortfolioManagement() {
     const fetchPortfolio = async () => {
       setLoading(true);
       const res = await fetch('/api/admin?type=portfolio');
-      const data = await res.json();
-      setPortfolioItems(data);
+      const raw = await res.json();
+      const normalized: PortfolioItem[] = (Array.isArray(raw) ? raw : []).map((it: any) => ({
+        id: Number(it?.id ?? 0),
+        title: String(it?.title ?? ''),
+        category: String(it?.category ?? ''),
+        status: it?.status === 'published' ? 'published' : 'draft',
+        description: String(it?.description ?? ''),
+        imageUrl: String(it?.imageUrl ?? ''),
+        featured: Boolean(it?.featured),
+      }));
+      setPortfolioItems(normalized);
       setLoading(false);
     };
     fetchPortfolio();
@@ -46,11 +55,11 @@ export default function PortfolioManagement() {
 };
 
   const handlePublishPortfolio = async (id: number) => {
-    const updated = portfolioItems.map((item: PortfolioItem) =>
-      item.id === id ? { ...item, status: 'published' } : item
+    const updated = portfolioItems.map<PortfolioItem>((item) =>
+      item.id === id ? { ...item, status: 'published' as const } : item
     );
     setPortfolioItems(updated);
-    const published = updated.find((item: PortfolioItem) => item.id === id);
+    const published = updated.find((item) => item.id === id) as PortfolioItem | undefined;
     if (published) {
       await fetch('/api/admin', {
         method: 'PUT',
@@ -73,7 +82,7 @@ export default function PortfolioManagement() {
 
   return (
     <main style={{ paddingTop: 120 }}>
-      <Navbar isAdmin />
+      <Navbar />
       
       <FadeIn delay={0.2}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '24px' }}>
